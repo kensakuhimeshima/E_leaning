@@ -1,0 +1,22 @@
+<div class="mt-5 pt-5">
+    <div class="row answers">
+        <div class="col-8 offset-2">
+            <div class="row mb-4">
+                <h1 class="col"><%= @category.title %></h1>
+                <h3 class="col text-right">1of1</h3>
+            </div>
+            <div class="card shadow-sm rounded">
+                <div class="card-body">
+                    <h3 class="card-title text-center my-4"><%= @lesson.next_word.content %></h3>
+                    <% @lesson.next_word.choices.each do |choice| %>
+                        <%= form_for([:lesson, @lesson.answers.build]) do |f| %>
+                            <%= f.hidden_field :word_id, value: choice.word_id %>
+                            <%= f.hidden_field :choice_id, value: choice.id %>
+                            <%= f.submit choice.content, class: "btn btn-outline-dark btn-lg btn-block"%>
+                        <% end%>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

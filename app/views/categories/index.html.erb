@@ -1,0 +1,56 @@
+<div class="text-center mb-3">
+    <div class="row">
+        <div class="col-6 offset-3 mt-5 text-center">
+            <h1>Lessons</h1>
+            <ul class="nav nav-pills nav-tabs justify-content-center mt-4">
+                <li class="nav-item tab_settings">
+                    <%= link_to "All", categories_index_path , class: "nav-link active"%>
+                </li>
+                <li class="nav-item tab_settings">
+                    <%= link_to "Learned", categories_index_path(learned: "1") , class: "nav-link"%>
+                </li>
+                <li class="nav-item tab_settings">
+                    <%= link_to "Not Learned", categories_index_path(learned: "0") , class: "nav-link"%>
+                </li>
+            </ul>
+            <br>
+            <% @categories.each do |category| %>
+                <div class="row mb-2 d-inline-block w-50">
+                    <% unless category.words.empty? %>
+                        <% lesson = @user.lesson_taken(category.id) %>
+                        <div class="col">
+                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <div class="text-left">
+                                        <%= category.title %>
+                                    </div>
+                                    <div class="text-left">
+                                        <%= category.description %>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="text-right">
+                                    <%#= hidden_field_tag @result =  %>
+                                        <%= form_for @lesson do |f| %>
+                                            <%= hidden_field_tag :category_id, category.id %>
+                                            <% if lesson.nil? %>
+                                                <%= f.submit "Learn", class: "btn btn-outline-dark text-right"%>
+                                            <% else %>
+                                                <%= link_to "Result",lesson , class: "btn btn-outline-dark text-right"%>
+                                            <% end %>
+                                        <% end %> 
+                                    </div> 
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>    
+    </div>
+
+    <div class="paginate text-center">
+        <%= will_paginate %> 
+    </div>
+    <%= link_to 'Back', admin_home_path, class: "back-btn" %>
+</div>

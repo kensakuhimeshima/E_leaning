@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ELearning</title>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+
+    <body>
+        <%= render 'layouts/header' %>
+        <div class="mt-5 pb-5">
+            <% if flash.any? %>
+                <% flash.each do |type, msg| %>
+                    <div class="alert alert-<%= type %> mt-5 mb-0">
+                        <div><%= msg %></div>
+                    </div>
+                <% end %>
+            <% end %>   
+            <%= yield %>
+        </div>
+        <%= render 'layouts/footer' %>
+    </body>
+</html>

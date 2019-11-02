@@ -1,0 +1,102 @@
+@import "bootstrap";
+@import "font-awesome";
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999;
+  transition: ease-in-out color .15s;
+}
+.site-header a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.carouel-item {
+  height: 100vh;
+}
+
+.carouel-caption {
+  padding-bottom: 250px;
+}
+
+.jumbotron {
+  margin-top: 2rem;
+  padding: 2rem 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 400px;
+}
+
+.main-container {
+  background-image: url("background-618226_1280.png");
+  background-size: cover;
+  height: 100vh;
+}
+
+.paginate {
+  nav {
+      display: inline-block;
+  }
+}
+
+.profile-size {
+  height: 80px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.profile-picture {
+  height: 250px;
+  width: auto;
+  border-radius: 50%;
+}
+
+.btn-design .btn-dark {
+  width: 60%;
+}
+
+.administration {
+  margin-top: 100px;
+}
+
+.title {
+  font-size: 65px;
+}
+
+.categories {
+  margin-top: 100px;
+}
+
+.back-btn {
+  font-size: 20px;
+}
+
+.tab_settings {
+  width: 130px;
+  height: 45px;
+  padding-top: 9px;
+  text-align: center;
+  color: #FFFEFA;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #404443;
+  color: #FFFEFA;
+}
+
+.answers {
+  margin-top: 70px;
+}
+
+.result {
+  margin-top: 100px;
+}
+
+.feed-picture {
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+}
